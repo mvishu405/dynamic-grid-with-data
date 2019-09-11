@@ -1,11 +1,5 @@
-// Import stylesheets
-import './style.css';
-
-// Write Javascript code!
-const appDiv = document.getElementById('app');
-appDiv.innerHTML = `<h1>JS Starter</h1>`;
-
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import $ from "jquery";
 
 
 function people(id, name, title, imageLink, description){
@@ -17,24 +11,35 @@ function people(id, name, title, imageLink, description){
 }
 
 const peopleArray = [
-  new people(1, 'Vishal', 'image', 'description'),
-  new people(1, 'Vishal1', 'image', 'description'),
-  new people(1, 'Vishal2', 'image', 'description'),
-  new people(1, 'Vishal3', 'image', 'description'),
-  new people(1, 'Vishal4', 'image', 'description'),
+  new people(1, 'Vishal', 'position' , 'https://placehold.it/500x500', 'description'),
+  new people(1, 'Vishal1', 'position' ,'https://placehold.it/500x500', 'description'),
+  new people(1, 'Vishal2', 'position' ,'https://placehold.it/500x500', 'description'),
+  new people(1, 'Vishal2', 'position' ,'https://placehold.it/500x500', 'description'),
+  new people(1, 'Vishal', 'position' , 'https://placehold.it/500x500', 'description'),
+  new people(1, 'Vishal1', 'position' ,'https://placehold.it/500x500', 'description'),
+  new people(1, 'Vishal2', 'position' ,'https://placehold.it/500x500', 'description'),
+  new people(1, 'Vishal2', 'position' ,'https://placehold.it/500x500', 'description'),
+  new people(1, 'Vishal', 'position' , 'https://placehold.it/500x500', 'description'),
+  new people(1, 'Vishal1', 'position' ,'https://placehold.it/500x500', 'description'),
+  new people(1, 'Vishal2', 'position' ,'https://placehold.it/500x500', 'description'),
+  new people(1, 'Vishal2', 'position' ,'https://placehold.it/500x500', 'description'),
 ];
 
 const peopleUI = peopleArray.map((people) => {
   let peopleGrid;
   peopleGrid = `
-  <div>
-  <p>${people.name}</p>
-  <p>${people.title}</p>
-  <p>${people.imageLink}</p>
-  </div>  
+  <div class="col-md-3">
+    <div class="card">
+      <div class="card-header">${people.name}</div>
+      <div class="card-body">
+        <img class="img-fluid" src="${people.imageLink}">
+      </div>
+      <div class="card-footer">${people.title}</div>
+    </div> 
+  </div>
   `;
   return peopleGrid;
 });
 
 let peopleContainer = document.getElementById('peopleContainer');
-peopleContainer.innerHTML = peopleUI;
+peopleContainer.innerHTML = peopleUI.join('');
